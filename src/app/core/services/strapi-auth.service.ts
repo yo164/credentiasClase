@@ -32,7 +32,10 @@ export class StrapiAuthService {
 
  //modificaciond el constructor
   constructor() { 
-   this.user = ;
+   this.user = signal<any>(null);
+   this.error = signal<any>(null);
+   const token = localStorage.getItem('token');
+   
   }
 
   //Registrar nuevo usuario
