@@ -26,6 +26,7 @@ export class StrapiAuthService {
  // se sustituye por un signal para manejar el usuario de forma reactiva
  public user = signal<User | null>(null);
  public error: any | null;
+ private token: string;
 
  private http:HttpClient = inject(HttpClient);
 
@@ -35,9 +36,18 @@ export class StrapiAuthService {
    this.user = signal<any>(null);
    this.error = signal<any>(null);
    const token = localStorage.getItem('token');
+   if(token){
+
+   }
    
   }
-
+  me(): User{
+    this.http.get("http://localhost:1337/api/users/me", {
+      headers:{
+        "Authorization":`Bearer ${}`
+      }
+    });
+  }
   //Registrar nuevo usuario
   register(newUser: User): boolean {
     
