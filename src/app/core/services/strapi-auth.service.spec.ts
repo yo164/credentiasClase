@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthService } from './local-storage-auth.service';
+import { StrapiAuthService } from './strapi-auth.service';
 
-describe('AuthService', () => {
-  let service: AuthService;
+describe('StrapiAuthService', () => {
+  let service: StrapiAuthService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthService);
+    service = TestBed.inject(StrapiAuthService);
   });
 
   it('should be created', () => {
