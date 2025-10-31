@@ -48,8 +48,16 @@ export class StrapiAuthService {
     this.http.post<LoginResponse>("http://localhost:1337/api/auth/local", body).subscribe({
       next:(data:LoginResponse) => {
         localStorage.setItem('token', data.jwt);
+        const newUser: User = {
+          email:data.user.email,
+          name: data.user.name,
+          surname: data.user.surname
+        }
+        this.user.set(newUser);
       },
-      error:(err) => {}
+      error:(err) => {
+        this.error.set('Ha habido un error: ', err);
+      }
     })
   }
 
